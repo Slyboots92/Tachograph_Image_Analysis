@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     tachoproccesingmain.cpp \
     TachoImageAnalysis/TachoActivities/tachoactivitiy.cpp \
     TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.cpp \
-    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp \
+    GUI/main.cpp \
+    GUI/mainwindow.cpp
 
 HEADERS  += mainwindow.h \
     tachoimage.h \
@@ -34,6 +36,7 @@ HEADERS  += mainwindow.h \
     tachoproccesingmain.h \
     TachoImageAnalysis/TachoActivities/tachoactivitiy.h \
     TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h \
-    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h \
+    GUI/mainwindow.h
 
 FORMS    += mainwindow.ui
