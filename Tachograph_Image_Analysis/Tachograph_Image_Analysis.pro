@@ -15,11 +15,25 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     tachoimage.cpp \
-    rgb2graylightnessalgo.cpp
+    rgb2graylightnessalgo.cpp \
+    image.cpp \
+    TachoImageShared/tachoimage.cpp \
+    tachoimageanalysismain.cpp \
+    tachoactivitiy.cpp \
+    tachoproccesingmain.cpp \
+    TachoImageAnalysis/TachoActivities/tachoactivitiy.cpp \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.cpp \
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp
 
 HEADERS  += mainwindow.h \
     tachoimage.h \
-    rgb2grayalgo.h \
-    rgb2graylightnessalgo.h
+    rgb2graylightnessalgo.h \
+    TachoImageShared/tachoimage.h \
+    tachoimageanalysismain.h \
+    tachoactivitiy.h \
+    tachoproccesingmain.h \
+    TachoImageAnalysis/TachoActivities/tachoactivitiy.h \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h \
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h
 
 FORMS    += mainwindow.ui
