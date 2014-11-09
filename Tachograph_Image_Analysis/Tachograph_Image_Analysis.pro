@@ -40,3 +40,6 @@ HEADERS  += mainwindow.h \
     GUI/mainwindow.h
 
 FORMS    += mainwindow.ui
+
+OTHER_FILES += \
+    Resource/techo1_moja.jpg
