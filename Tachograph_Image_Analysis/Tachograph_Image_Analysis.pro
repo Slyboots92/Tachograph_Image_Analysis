@@ -42,4 +42,5 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 OTHER_FILES += \
-    Resource/techo1_moja.jpg
+    Resource/techo1_moja.jpg \
+    Resource/tarcza12.pgm
