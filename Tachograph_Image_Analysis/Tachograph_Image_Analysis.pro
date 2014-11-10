@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/imagecolorreduction.cpp \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.cpp \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.cpp \
-    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.cpp
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.cpp \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.cpp
 
 
 
@@ -34,7 +35,8 @@ HEADERS  += \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/imagecolorreduction.h \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.h \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h \
-    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h
 
 
 
