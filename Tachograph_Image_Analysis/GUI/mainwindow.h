@@ -2,7 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
+#include "TachoImageShared/tachoimage.h"
+#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h"
+#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h"
+#include <QDebug>
+#include <QGraphicsScene>
 namespace Ui {
 class MainWindow;
 }

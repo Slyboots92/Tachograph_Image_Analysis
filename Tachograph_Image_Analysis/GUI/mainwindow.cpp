@@ -6,6 +6,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ImageColorReduction * algo1= new LuminosityRGB2GrayScale();
+
+   QImage * image = new  QImage();
+   image->load("E:\\qt_workspace\\Tachograph_Image_Analysis\\Resource\\techo1_moja.jpg" );
+   TachoImage * tacho = new TachoImage(image );
+   algo1->reduceColor(image,tacho);
+   int ** array=tacho->getArray();
+
+   int gray;
+   for(int i=0;i<tacho->getHeight();i++)
+   {
+       for(int j=0;j<tacho->getWidth();j++)
+       {
+            gray=array[i][j];
+           image->setPixel(j, i, qRgb(gray, gray, gray));
+
+       }
+   }
+    QGraphicsScene * scene = new QGraphicsScene();
+
+    QPixmap pixmap = QPixmap::fromImage(*image);
+    scene->addPixmap(pixmap);
+
+
+
+    ui->graphicsView->setScene(scene);
 }
 
 MainWindow::~MainWindow()

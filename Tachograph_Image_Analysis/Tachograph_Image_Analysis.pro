@@ -13,34 +13,36 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    tachoimage.cpp \
-    rgb2graylightnessalgo.cpp \
-    image.cpp \
-    TachoImageShared/tachoimage.cpp \
-    tachoimageanalysismain.cpp \
-    tachoactivitiy.cpp \
-    tachoproccesingmain.cpp \
     TachoImageAnalysis/TachoActivities/tachoactivitiy.cpp \
     TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.cpp \
     TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp \
-    GUI/main.cpp \
-    GUI/mainwindow.cpp
+    TachoImageShared/tachoimage.cpp \
+    GUI/mainwindow.cpp \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/imagecolorreduction.cpp \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.cpp \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.cpp \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.cpp
 
-HEADERS  += mainwindow.h \
-    tachoimage.h \
-    rgb2graylightnessalgo.h \
-    TachoImageShared/tachoimage.h \
-    tachoimageanalysismain.h \
-    tachoactivitiy.h \
-    tachoproccesingmain.h \
+
+
+HEADERS  += \
     TachoImageAnalysis/TachoActivities/tachoactivitiy.h \
     TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h \
     TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h \
-    GUI/mainwindow.h
+    TachoImageShared/tachoimage.h \
+    GUI/mainwindow.h \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/imagecolorreduction.h \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.h \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h \
+    TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h
 
-FORMS    += mainwindow.ui
+
+
+
 
 OTHER_FILES += \
     Resource/techo1_moja.jpg \
     Resource/tarcza12.pgm
+
+FORMS += \
+    GUI/mainwindow.ui
