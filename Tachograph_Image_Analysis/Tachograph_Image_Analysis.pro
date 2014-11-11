@@ -44,7 +44,9 @@ HEADERS  += \
 
 OTHER_FILES += \
     Resource/techo1_moja.jpg \
-    Resource/tarcza12.pgm
+    Resource/tarcza12.pgm \
+    Resource/techo1_moja_kadrowana.jpg \
+    Resource/techo1_moja_kadrowana_obrot.jpg
 
 FORMS += \
     GUI/mainwindow.ui
