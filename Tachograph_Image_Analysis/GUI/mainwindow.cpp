@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    TachoImageAnalysisMain * analysis= new TachoImageAnalysisRingImplementation();
+    TachoImageAnalysisMain * analysis= new TachoImageAnalysisPolarImplementation();
     analysis->getAllActivities(tacho);
 
 

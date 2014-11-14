@@ -44,10 +44,10 @@ for(int i=a-r2;i<=a+r2;i++)
            if(array[i][y1]<100)
            {
                 l++;
-                array[i][y1]=0;
+               // array[i][y1]=0;
            }
-           //array[i][y1]=0;
-         //  array[i][y2]=0;
+           array[i][y1]=0;
+           array[i][y2]=0;
        }
 
        if(l>0.8*(r1-r2))
@@ -64,9 +64,9 @@ for(int i=a-r2;i<=a+r2;i++)
        l=0;
        for(int k=0;k<=r1-r2;k++)
        {
-           //y1=round(sqrt(((r2+k)-i+a)*((r2+k)+i-a))+b);
+           y1=round(sqrt(((r2+k)-i+a)*((r2+k)+i-a))+b);
            y2=round(-sqrt(((r2+k)-i+a)*((r2+k)+i-a))+b);
-           //y2=round(-sqrt((r2+k)*(r2+k) -(i-a)*(i-a)) +b);
+          // y2=round(-sqrt((r2+k)*(r2+k) -(i-a)*(i-a)) +b);
 
            if(array[i][y2]<100)
            {
@@ -74,10 +74,10 @@ for(int i=a-r2;i<=a+r2;i++)
                 array[i][y2]=0;
            }
           // array[i][y2]=0;
-
+           //array[i][y1]=0;
        }
 
-       if(l>0.8*(r1-r2))
+       if(l>0.9*(r1-r2))
        {
             counter++;
 

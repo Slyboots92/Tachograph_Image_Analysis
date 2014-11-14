@@ -22,7 +22,12 @@ SOURCES += main.cpp\
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.cpp \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.cpp \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.cpp \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.cpp
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.cpp \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.cpp \
+    TachoImageAnalysis/TachoActivities/tachodrivingactivity.cpp \
+    TachoImageAnalysis/TachoActivities/tachoworkingactivity.cpp \
+    TachoImageAnalysis/TachoActivities/tachostandbyactivity.cpp \
+    TachoImageAnalysis/TachoActivities/tachorestactivity.cpp
 
 
 
@@ -36,7 +41,12 @@ HEADERS  += \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.h \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h \
     TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.h \
+    TachoImageAnalysis/TachoActivities/tachodrivingactivity.h \
+    TachoImageAnalysis/TachoActivities/tachoworkingactivity.h \
+    TachoImageAnalysis/TachoActivities/tachostandbyactivity.h \
+    TachoImageAnalysis/TachoActivities/tachorestactivity.h
 
 
 

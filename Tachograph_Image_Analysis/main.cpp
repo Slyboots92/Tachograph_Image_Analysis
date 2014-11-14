@@ -9,8 +9,6 @@ int main(int argc, char *argv[])
     MainWindow w;
      w.show();
 
-   // ImageColorReduction *algo2=new AverageRGB2GrayScale();
-    //TachoImage *tacho = new TachoImage()
 
     return a.exec();
 }

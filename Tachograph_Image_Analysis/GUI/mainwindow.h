@@ -8,6 +8,7 @@
 #include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.h"
 #include"TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h"
 #include"TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h"
+#include "TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.h"
 #include <QDebug>
 #include <QGraphicsScene>
 namespace Ui {
