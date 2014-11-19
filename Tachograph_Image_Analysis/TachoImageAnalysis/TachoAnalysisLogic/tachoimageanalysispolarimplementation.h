@@ -15,11 +15,9 @@ public:
     TachoImageAnalysisPolarImplementation();
     std::vector<TachoActivitiy> getAllActivities(TachoImage *tacho);
 private:
-TachoActivitiy* validateActivity(int *array,int length);
-
-std::vector<TachoActivitiy> checkCircle(int **array,int width,int height,int r1,int r2,int a,int b,double resoultion);
-
-std::vector<TachoActivitiy> correctDelayCausedRatation( std::vector<TachoActivitiy> activities,double fi);
+int findTranslationToStartScaning(TachoImage * tachoImage,int resolution,int r1,int r2,int a ,int b);
+std::vector<TachoActivitiy> scanCircle(TachoImage * tachoImage,int resolution,double translation,int r1,int r2,int a,int b);
+int validateActivity(int buff[],int length,double param1,double param2,double param3,double treshold);
 
 };
 
