@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ImageColorReduction * algo1= new LightnessRGB2GrayScale();
 
    QImage * image = new  QImage();
-   image->load("E:\\qt_workspace\\Tachograph_Image_Analysis\\Resource\\techo1_moja_kadrowana_obrot.jpg" );
+   image->load("D:\\development\\workspaces\\qt_workspace\\engineer\\Tachograph_Image_Analysis\\Tachograph_Image_Analysis\\Resource\\techo1_moja_kadrowana_obrot.jpg");
+   //image->load("E:\\qt_workspace\\Tachograph_Image_Analysis\\Resource\\techo1_moja_kadrowana_obrot.jpg" );
    TachoImage * tacho = new TachoImage(image );
    algo1->reduceColor(image,tacho);
    int ** array=tacho->getArray();
