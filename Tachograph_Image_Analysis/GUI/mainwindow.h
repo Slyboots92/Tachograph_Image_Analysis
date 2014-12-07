@@ -2,18 +2,15 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "TachoImageShared/tachoimage.h"
-//#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h"
-//#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/luminosityrgb2grayscale.h"
-//#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/lightnessrgb2grayscale.h"
-#include"TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h"
-#include"TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h"
-#include "TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.h"
-#include "TachoImageProccesing/TachoProccesingLogic/ColorReduction/imagecolorreduction.h"
-#include "TachoImageProccesing/TachoProccesingLogic/ColorReduction/averagergb2grayscale.h"
-#include "TachoImageProccesing/TachoProccesingLogic/ColorReduction/lightnessrgb2grayscale.h"
 #include <QDebug>
 #include <QGraphicsScene>
+#include "TachoImageShared/tachoimage.h"
+#include "TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h"
+#include "TachoImageAnalysis/PolarBasicImpl/tachoimageanalysispolarimplementation.h"
+#include "TachoImageProccesing/ColorReduction/imagecolorreduction.h"
+#include "TachoImageProccesing/ColorReduction/averagergb2grayscale.h"
+#include "TachoImageProccesing/ColorReduction/lightnessrgb2grayscale.h"
+
 namespace Ui {
 class MainWindow;
 }

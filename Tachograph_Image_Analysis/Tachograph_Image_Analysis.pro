@@ -13,42 +13,51 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-    TachoImageAnalysis/TachoActivities/tachoactivitiy.cpp \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.cpp \
-    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp \
-    TachoImageShared/tachoimage.cpp \
     GUI/mainwindow.cpp \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.cpp \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.cpp \
+    TachoImageAnalysis/PolarBasicImpl/tachoimageanalysispolarimplementation.cpp \
+    TachoImageAnalysis/TachoActivities/tachoactivitiy.cpp \
     TachoImageAnalysis/TachoActivities/tachodrivingactivity.cpp \
-    TachoImageAnalysis/TachoActivities/tachoworkingactivity.cpp \
-    TachoImageAnalysis/TachoActivities/tachostandbyactivity.cpp \
     TachoImageAnalysis/TachoActivities/tachorestactivity.cpp \
+    TachoImageAnalysis/TachoActivities/tachostandbyactivity.cpp \
+    TachoImageAnalysis/TachoActivities/tachoworkingactivity.cpp \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.cpp \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.cpp \
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.cpp \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/averagergb2grayscale.cpp \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/imagecolorreduction.cpp \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/lightnessrgb2grayscale.cpp \
-    TachoImageProccesing/TachoProccesingLogic/ColorReduction/luminosityrgb2grayscale.cpp
+    TachoImageProccesing/TachoProccesingLogic/ColorReduction/luminosityrgb2grayscale.cpp \
+    TachoImageShared/tachoimage.cpp \
+    TachoImageProccesing/ColorReduction/averagergb2grayscale.cpp \
+    TachoImageProccesing/ColorReduction/imagecolorreduction.cpp \
+    TachoImageProccesing/ColorReduction/lightnessrgb2grayscale.cpp \
+    TachoImageProccesing/ColorReduction/luminosityrgb2grayscale.cpp \
+    TachoImageProccesing/tachoproccesingmain.cpp
 
 
 
 
 HEADERS  += \
-    TachoImageAnalysis/TachoActivities/tachoactivitiy.h \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h \
-    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h \
-    TachoImageShared/tachoimage.h \
     GUI/mainwindow.h \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h \
-    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysispolarimplementation.h \
+    TachoImageAnalysis/PolarBasicImpl/tachoimageanalysispolarimplementation.h \
+    TachoImageAnalysis/TachoActivities/tachoactivitiy.h \
     TachoImageAnalysis/TachoActivities/tachodrivingactivity.h \
-    TachoImageAnalysis/TachoActivities/tachoworkingactivity.h \
-    TachoImageAnalysis/TachoActivities/tachostandbyactivity.h \
     TachoImageAnalysis/TachoActivities/tachorestactivity.h \
+    TachoImageAnalysis/TachoActivities/tachostandbyactivity.h \
+    TachoImageAnalysis/TachoActivities/tachoworkingactivity.h \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysismain.h \
+    TachoImageAnalysis/TachoAnalysisLogic/tachoimageanalysisringimplementation.h \
+    TachoImageProccesing/TachoProccesingLogic/tachoproccesingmain.h \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/averagergb2grayscale.h \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/imagecolorreduction.h \
     TachoImageProccesing/TachoProccesingLogic/ColorReduction/lightnessrgb2grayscale.h \
-    TachoImageProccesing/TachoProccesingLogic/ColorReduction/luminosityrgb2grayscale.h
-
+    TachoImageProccesing/TachoProccesingLogic/ColorReduction/luminosityrgb2grayscale.h \
+    TachoImageShared/tachoimage.h \
+    TachoImageProccesing/ColorReduction/averagergb2grayscale.h \
+    TachoImageProccesing/ColorReduction/imagecolorreduction.h \
+    TachoImageProccesing/ColorReduction/lightnessrgb2grayscale.h \
+    TachoImageProccesing/ColorReduction/luminosityrgb2grayscale.h \
+    TachoImageProccesing/tachoproccesingmain.h
 
 
 
