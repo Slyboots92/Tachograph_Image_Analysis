@@ -5,6 +5,7 @@ class TachoDrivingActivity: public TachoActivitiy
 {
 public:
     TachoDrivingActivity();
+     int getType();
 };
 
 #endif // TACHODRIVINGACTIVITY_H

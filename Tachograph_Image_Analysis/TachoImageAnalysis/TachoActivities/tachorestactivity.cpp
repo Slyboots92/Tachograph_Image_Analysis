@@ -3,3 +3,7 @@
 TachoRestActivity::TachoRestActivity()
 {
 }
+int TachoRestActivity::getType()
+{
+   return 0;
+}

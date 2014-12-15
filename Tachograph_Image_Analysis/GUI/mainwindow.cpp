@@ -18,14 +18,28 @@ MainWindow::MainWindow(QWidget *parent) :
    tacho->setActivityInternalRadius(363);
    tacho->setXCenterCord(tacho->getWidth()/2);
    tacho->setYCenterCord(tacho->getHeight()/2);
-   // int a=tacho->getHeight()/2;
-   // int b=tacho->getWidth()/2;
-    //int r1=363;
-    //int r2=387;
+
+
 
 
     TachoImageAnalysisMain * analysis= new TachoImageAnalysisPolarImplementation();
-    int *result=analysis->getAllActivities(tacho);
+    std::vector<TachoActivitiy*> result=analysis->getAllActivities(tacho);
+
+    for(std::vector<TachoActivitiy*>::iterator it = result.begin(); it != result.end(); ++it) {
+        qDebug()<<(*it)->getStartTimeInMin()<<"   "
+               <<(*it)->getDuringTimeInMin()<<"    "<<(*it)->getEndTimeInMin()<<"type "<<(*it)->getType();
+    }
+
+                  //int getEndTimeInMin() const;
+
+
+                  //int getStartTimeInMin() const;
+
+
+                  //int getDuringTimeInMin() const;
+
+
+
     int x;
     int y;
     int counter=0;
@@ -40,35 +54,41 @@ for(int i=0;i<tacho->getHeight();i++)
         image->setPixel(j, i, qRgb(gray, gray, gray));
     }
 }
-for(int i=180*2;i>-180*2;i--)
-{
-     for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
-     {
-         x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*2)));
-         y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*2)));
-         y=y+tacho->getXCenterCord();
-         x=x+tacho->getYCenterCord();
-         if(result[counter]==0)
-         {
-                image->setPixel(y, x, qRgb(255, 0, 0));
-         }
-         else if(result[counter]==1)
-         {
-                image->setPixel(y, x, qRgb(0, 0, 255));
-         }
-         else if(result[counter]==2)
-         {
-                image->setPixel(y, x, qRgb(0, 255, 0));
-         }
-         else if(result[counter]==3)
-         {
-            image->setPixel(y, x, qRgb(255, 255, 0));
-         }
-         //array[y][x]=0;
+qDebug()<<"width"<<tacho->getWidth();
+qDebug()<<"width"<<tacho->getHeight();
 
-     }
-     counter++;
-}
+
+//for(int i=4*180;i>-180*4;i--)
+//{
+//     for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
+//     {
+//         x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*4)));
+//         y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*4)));
+//         y=y+tacho->getYCenterCord();
+//         x=x+tacho->getXCenterCord();
+//        // qDebug()<<"x "<<x;
+//         //qDebug()<<"y "<<y;
+//         if(result[counter]==0)
+//         {
+//                image->setPixel(x, y, qRgb(255, 0, 0));
+//         }
+//         else if(result[counter]==1)
+//         {
+//                image->setPixel(x, y, qRgb(0, 0, 255));
+//         }
+//         else if(result[counter]==2)
+//         {
+//                image->setPixel(x, y, qRgb(0, 255, 0));
+//         }
+//         else if(result[counter]==3)
+//         {
+//            image->setPixel(x, y, qRgb(255, 255, 0));
+//         }
+//         //array[y][x]=0;
+
+//     }
+//     counter++;
+//}
 
     QGraphicsScene * scene = new QGraphicsScene();
 

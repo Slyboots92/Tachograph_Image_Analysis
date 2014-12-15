@@ -3,17 +3,50 @@
 TachoImageAnalysisPolarImplementation::TachoImageAnalysisPolarImplementation()
 {
 }
-int* TachoImageAnalysisPolarImplementation::getAllActivities(TachoImage *tacho)
+std::vector<TachoActivitiy*> TachoImageAnalysisPolarImplementation::getAllActivities(TachoImage *tacho)
 {
     // int a=tacho->getHeight()/2;
     // int b=tacho->getWidth()/2;
      //int r1=363;
      //int r2=387;
     int buffLength=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();
-    int **rectangleWithActivities=transformRing2Rectangle(tacho,2);
-    int * result=scanRectangle(rectangleWithActivities,2,buffLength);
-
+    int **rectangleWithActivities=transformRing2Rectangle(tacho,4);
+    int * activities=scanRectangle(rectangleWithActivities,4,buffLength);
+    std::vector<TachoActivitiy*> result=createAndComputeActivityDetails(activities,4);
     return result;
+}
+std::vector<TachoActivitiy*>
+TachoImageAnalysisPolarImplementation::createAndComputeActivityDetails(int *activities,int resolution)
+{
+    std::vector<TachoActivitiy*> result;
+    double unit=(24*60)/(360*resolution);
+    int currentActivityNumber=-1;
+    int duringTime=0;
+    TachoActivitiy *currentActivity=NULL;
+    PolarBasicTachoActivityFactory *factory = new PolarBasicTachoActivityFactory();
+    for(int i=0;i<resolution*360;i++)
+    {
+        if(activities[i]!=currentActivityNumber)
+        {
+            currentActivityNumber=activities[i];
+            if(currentActivity!=NULL)
+            {
+                currentActivity->setDuringTimeInMin(duringTime*unit);
+                currentActivity->setEndTimeInMin(i*unit);
+                result.push_back(currentActivity);
+            }
+            currentActivity=factory->produceTachoActivtiy(currentActivityNumber);
+            currentActivity->setStartTimeInMin(i*unit);
+            duringTime=0;
+        }
+        else
+        {
+            duringTime++;
+        }
+
+    }
+return result;
+
 }
 
 int ** TachoImageAnalysisPolarImplementation::transformRing2Rectangle(TachoImage * tacho,int resolution)
@@ -34,11 +67,9 @@ int ** TachoImageAnalysisPolarImplementation::transformRing2Rectangle(TachoImage
          {
              x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*resolution)));
              y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*resolution)));
-             y=y+tacho->getXCenterCord();
-             x=x+tacho->getYCenterCord();
+             y=y+tacho->getYCenterCord();
+             x=x+tacho->getXCenterCord();
              result[counter][k]=array[y][x];
-             //array[y][x]=0;
-
          }
          counter++;
    }
@@ -67,7 +98,7 @@ int TachoImageAnalysisPolarImplementation::countBlackPixelInBuff(int buff[],int 
         }
 
     }
-    qDebug()<<" percent"<<(double)counter/length<< " ";
+   // qDebug()<<" percent"<<(double)counter/length<< " ";
 return counter;
 
 }
@@ -98,3 +129,5 @@ int TachoImageAnalysisPolarImplementation::decideWhichActivity(int counter,int b
 
 
 }
+
+

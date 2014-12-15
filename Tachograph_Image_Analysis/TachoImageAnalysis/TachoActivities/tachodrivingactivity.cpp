@@ -3,3 +3,7 @@
 TachoDrivingActivity::TachoDrivingActivity()
 {
 }
+ int TachoDrivingActivity::getType()
+ {
+    return 3;
+ }

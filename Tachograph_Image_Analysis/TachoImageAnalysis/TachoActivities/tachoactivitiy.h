@@ -14,10 +14,13 @@ public:
     int getDuringTimeInMin() const;
     void setDuringTimeInMin(int value);
 
+   virtual int getType()=0;
+
 protected:
     int duringTimeInMin;
     int startTimeInMin;
     int endTimeInMin;
+
 };
 
 

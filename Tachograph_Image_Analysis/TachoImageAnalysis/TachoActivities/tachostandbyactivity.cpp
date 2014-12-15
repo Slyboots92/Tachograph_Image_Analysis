@@ -3,3 +3,7 @@
 TachoStandbyActivity::TachoStandbyActivity()
 {
 }
+int TachoStandbyActivity::getType()
+{
+   return 1;
+}

@@ -15,9 +15,9 @@ void LightnessRGB2GrayScale::reduceColor(QImage *image, TachoImage *tachoImage)
         {
             array[i][j]=convert1Pixel(image->pixel(j,i));
         }
-       if(i%100==0)
+      // if(i%100==0)
        {
-           qDebug()<<i<<"  "<<array[i][i];
+       //    qDebug()<<i<<"  "<<array[i][i];
        }
     }
     qDebug()<<"skonczylem";
