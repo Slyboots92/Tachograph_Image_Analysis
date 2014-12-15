@@ -14,13 +14,23 @@ MainWindow::MainWindow(QWidget *parent) :
    TachoImage * tacho = new TachoImage(image );
    algo1->reduceColor(image,tacho);
    int ** array=tacho->getArray();
-
+   tacho->setActivityExternalRadius(387);
+   tacho->setActivityInternalRadius(363);
+   tacho->setXCenterCord(tacho->getWidth()/2);
+   tacho->setYCenterCord(tacho->getHeight()/2);
+   // int a=tacho->getHeight()/2;
+   // int b=tacho->getWidth()/2;
+    //int r1=363;
+    //int r2=387;
 
 
     TachoImageAnalysisMain * analysis= new TachoImageAnalysisPolarImplementation();
-    analysis->getAllActivities(tacho);
+    int *result=analysis->getAllActivities(tacho);
+    int x;
+    int y;
+    int counter=0;
 
-
+//Change grayscale to RGB to display
 int gray;
 for(int i=0;i<tacho->getHeight();i++)
 {
@@ -30,9 +40,39 @@ for(int i=0;i<tacho->getHeight();i++)
         image->setPixel(j, i, qRgb(gray, gray, gray));
     }
 }
+for(int i=180*2;i>-180*2;i--)
+{
+     for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
+     {
+         x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*2)));
+         y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*2)));
+         y=y+tacho->getXCenterCord();
+         x=x+tacho->getYCenterCord();
+         if(result[counter]==0)
+         {
+                image->setPixel(y, x, qRgb(255, 0, 0));
+         }
+         else if(result[counter]==1)
+         {
+                image->setPixel(y, x, qRgb(0, 0, 255));
+         }
+         else if(result[counter]==2)
+         {
+                image->setPixel(y, x, qRgb(0, 255, 0));
+         }
+         else if(result[counter]==3)
+         {
+            image->setPixel(y, x, qRgb(255, 255, 0));
+         }
+         //array[y][x]=0;
+
+     }
+     counter++;
+}
+
     QGraphicsScene * scene = new QGraphicsScene();
 
-    QPixmap pixmap = QPixmap::fromImage(*image);
+   QPixmap pixmap = QPixmap::fromImage(*image);
     scene->addPixmap(pixmap);
 
 

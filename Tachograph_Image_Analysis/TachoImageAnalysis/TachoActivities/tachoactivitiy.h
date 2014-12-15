@@ -21,31 +21,5 @@ protected:
 };
 
 
-int TachoActivityFactory::getEndTimeInMin() const
-{
-return endTimeInMin;
-}
 
-void TachoActivityFactory::setEndTimeInMin(int value)
-{
-endTimeInMin = value;
-}
-int TachoActivityFactory::getStartTimeInMin() const
-{
-return startTimeInMin;
-}
-
-void TachoActivityFactory::setStartTimeInMin(int value)
-{
-startTimeInMin = value;
-}
-int TachoActivityFactory::getDuringTimeInMin() const
-{
-return duringTimeInMin;
-}
-
-void TachoActivityFactory::setDuringTimeInMin(int value)
-{
-duringTimeInMin = value;
-}
 #endif // TACHOACTIVITIY_H

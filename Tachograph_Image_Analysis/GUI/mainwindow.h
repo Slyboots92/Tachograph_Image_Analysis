@@ -10,7 +10,7 @@
 #include "TachoImageProccesing/ColorReduction/imagecolorreduction.h"
 #include "TachoImageProccesing/ColorReduction/averagergb2grayscale.h"
 #include "TachoImageProccesing/ColorReduction/lightnessrgb2grayscale.h"
-
+#include <math.h>
 namespace Ui {
 class MainWindow;
 }

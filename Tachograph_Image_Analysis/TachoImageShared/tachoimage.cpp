@@ -16,3 +16,6 @@ TachoImage::TachoImage(QImage *image)
     }
     this->setArray(array);
 }
+
+
+

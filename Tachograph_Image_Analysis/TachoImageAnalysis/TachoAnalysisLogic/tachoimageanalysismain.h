@@ -6,7 +6,8 @@
 class TachoImageAnalysisMain
 {
 public:
-    virtual std::vector<TachoActivitiy> getAllActivities(TachoImage *tacho)=0;
+    //virtual std::vector<TachoActivitiy> getAllActivities(TachoImage *tacho)=0;
+    virtual int * getAllActivities(TachoImage *tacho)=0;
 };
 
 #endif // TACHOIMAGEANALYSISMAIN_H

@@ -23,7 +23,6 @@ public:
     {
         this->array=array;
     }
-
     int getWidth()
     {
         return width;
@@ -42,11 +41,49 @@ public:
     }
 
 
+     int getActivityExternalRadius() const
+     {
+        return activityExternalRadius;
+     }
+     void setActivityExternalRadius(int value)
+     {
+            this->activityExternalRadius=value;
+     }
+
+     int getActivityInternalRadius() const
+     {
+        return activityInternalRadius;
+     }
+     void setActivityInternalRadius(int value)
+     {
+        this->activityInternalRadius=value;
+     }
+     int getYCenterCord() const
+     {
+           return yCenterCord;
+     }
+     void setYCenterCord(int value)
+     {
+            this->yCenterCord=value;
+     }
+     int getXCenterCord() const
+     {
+            return xCenterCord;
+     }
+     void setXCenterCord(int value)
+     {
+            this->xCenterCord=value;
+     }
+
 private:
-    int width;
-    int height;
-    int gray_scale;
+     int width;
+     int height;
+     int gray_scale;
      int **array;
+     int xCenterCord;
+    int yCenterCord;
+    int activityInternalRadius;
+    int activityExternalRadius;
 };
 
 #endif // TACHOIMAGE_H
