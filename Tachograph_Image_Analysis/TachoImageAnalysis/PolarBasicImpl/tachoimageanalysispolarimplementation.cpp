@@ -5,10 +5,6 @@ TachoImageAnalysisPolarImplementation::TachoImageAnalysisPolarImplementation()
 }
 std::vector<TachoActivitiy*> TachoImageAnalysisPolarImplementation::getAllActivities(TachoImage *tacho)
 {
-    // int a=tacho->getHeight()/2;
-    // int b=tacho->getWidth()/2;
-     //int r1=363;
-     //int r2=387;
     int buffLength=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();
     int **rectangleWithActivities=transformRing2Rectangle(tacho,4);
     int * activities=scanRectangle(rectangleWithActivities,4,buffLength);
@@ -61,7 +57,7 @@ int ** TachoImageAnalysisPolarImplementation::transformRing2Rectangle(TachoImage
     {
         result[i]=new int[tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius()];
     }
-    for(int i=180*resolution;i>-resolution*180;i--)
+    for(int i=-180*resolution;i<resolution*180;i++)
     {
          for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
          {

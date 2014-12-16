@@ -58,14 +58,17 @@ qDebug()<<"width"<<tacho->getWidth();
 qDebug()<<"width"<<tacho->getHeight();
 
 
-//for(int i=4*180;i>-180*4;i--)
-//{
-//     for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
-//     {
-//         x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*4)));
-//         y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*4)));
-//         y=y+tacho->getYCenterCord();
-//         x=x+tacho->getXCenterCord();
+for(int i=4*180;i>160*4;i--)
+{
+     for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
+     {
+         x=round((tacho->getActivityInternalRadius()+k)*cos( M_PI*i/(180*4)));
+         y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*4)));
+         y=y+tacho->getYCenterCord();
+         x=x+tacho->getXCenterCord();
+          image->setPixel(y, x, qRgb(255, 0, 0));
+     }
+}
 //        // qDebug()<<"x "<<x;
 //         //qDebug()<<"y "<<y;
 //         if(result[counter]==0)
