@@ -19,14 +19,16 @@ public:
     TachoImageAnalysisPolarImplementation();
     //std::vector<TachoActivitiy> getAllActivities(TachoImage *tacho);
     std::vector<TachoActivitiy*>getAllActivities(TachoImage *tacho);
+    int *scanRectangle(int **rectangleWithActivities,int resolution,int length);
+    int ** transformRing2Rectangle(TachoImage * tacho,int resolution);
+    int *validateActivity();
+    int decideWhichActivity(int counter,int buffSize);
+    int countBlackPixelInBuff(int * buff,int length);
+
+    void markActivities (int * activities,int resolution,QImage * image);
+    std::vector<TachoActivitiy*> createAndComputeActivityDetails(int *activities,int resolution);
 private:
-int ** transformRing2Rectangle(TachoImage * tacho,int resolution);
-int *validateActivity();
-int decideWhichActivity(int counter,int buffSize);
-int countBlackPixelInBuff(int * buff,int length);
-int *scanRectangle(int **rectangleWithActivities,int resolution,int length);
-void markActivities (int * activities,int resolution,QImage * image);
-std::vector<TachoActivitiy*> createAndComputeActivityDetails(int *activities,int resolution);
+
 static const double STAND_BY_TRESHOLD=0.25;
 static const double ANOTHER_WORK_TRESHOLD=0.7;
 static const double DRIVE_TRESHOLD=0.85;

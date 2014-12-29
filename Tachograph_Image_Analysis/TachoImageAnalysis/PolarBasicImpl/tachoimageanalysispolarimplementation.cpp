@@ -35,10 +35,10 @@ TachoImageAnalysisPolarImplementation::createAndComputeActivityDetails(int *acti
             currentActivity->setStartTimeInMin(i*unit);
             duringTime=0;
         }
-        else
-        {
+
+
             duringTime++;
-        }
+
 
     }
 return result;

@@ -28,9 +28,6 @@ SOURCES += main.cpp\
     TachoImageProccesing/tachoproccesingmain.cpp \
     TachoImageShared/tachoimage.cpp \
     TachoImageAnalysis/TachoActivities/polarbasictachoactivityfactory.cpp \
-    TachoImageProccesing/cropimage.cpp \
-    TachoImageProccesing/CropImage/cropimage.cpp \
-    TachoImageProccesing/CropImage/basiccropimageimpl.cpp
 
 
 
@@ -51,9 +48,6 @@ HEADERS  += \
     TachoImageShared/tachoimage.h \
     TachoImageAnalysis/TachoActivities/tachoactivityfactory.h \
     TachoImageAnalysis/TachoActivities/polarbasictachoactivityfactory.h \
-    TachoImageProccesing/cropimage.h \
-    TachoImageProccesing/CropImage/cropimage.h \
-    TachoImageProccesing/CropImage/basiccropimageimpl.h
 
 
 

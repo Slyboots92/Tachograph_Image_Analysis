@@ -9,8 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ImageColorReduction * algo1= new LightnessRGB2GrayScale();
 
    QImage * image = new  QImage();
-   image->load("D:\\development\\workspaces\\qt_workspace\\engineer\\Tachograph_Image_Analysis\\Tachograph_Image_Analysis\\Resource\\techo1_moja_kadrowana_obrot.jpg");
-   //image->load("E:\\qt_workspace\\Tachograph_Image_Analysis\\Resource\\techo1_moja_kadrowana_obrot.jpg" );
+   image->load("/home/slyboots/development/workspace/qt_workspace/Tachograph_Image_Analysis/Tachograph_Image_Analysis/Resource/techo1_moja_kadrowana_obrot.jpg" );
+
+   qDebug()<<"is null"<<image->isNull();
    TachoImage * tacho = new TachoImage(image );
    algo1->reduceColor(image,tacho);
    int ** array=tacho->getArray();
@@ -22,21 +23,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
 
-    TachoImageAnalysisMain * analysis= new TachoImageAnalysisPolarImplementation();
-    std::vector<TachoActivitiy*> result=analysis->getAllActivities(tacho);
+     TachoImageAnalysisPolarImplementation * analysis= new TachoImageAnalysisPolarImplementation();
+    std::vector<TachoActivitiy*> result1=analysis->getAllActivities(tacho);
 
-    for(std::vector<TachoActivitiy*>::iterator it = result.begin(); it != result.end(); ++it) {
+    for(std::vector<TachoActivitiy*>::iterator it = result1.begin(); it != result1.end(); ++it) {
         qDebug()<<(*it)->getStartTimeInMin()<<"   "
                <<(*it)->getDuringTimeInMin()<<"    "<<(*it)->getEndTimeInMin()<<"type "<<(*it)->getType();
     }
 
-                  //int getEndTimeInMin() const;
-
-
-                  //int getStartTimeInMin() const;
-
-
-                  //int getDuringTimeInMin() const;
 
 
 
@@ -57,8 +51,9 @@ for(int i=0;i<tacho->getHeight();i++)
 qDebug()<<"width"<<tacho->getWidth();
 qDebug()<<"width"<<tacho->getHeight();
 
-
-for(int i=4*180;i>160*4;i--)
+int **rectangleWithActivities= analysis->transformRing2Rectangle(tacho,4);
+int * activities=analysis->scanRectangle(rectangleWithActivities,4,24);
+for(int i=4*-180;i<180*4;i++)
 {
      for(int k=0;k<=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();k++)
      {
@@ -66,32 +61,30 @@ for(int i=4*180;i>160*4;i--)
          y=round((tacho->getActivityInternalRadius()+k)*sin( M_PI*i/(180*4)));
          y=y+tacho->getYCenterCord();
          x=x+tacho->getXCenterCord();
-          image->setPixel(y, x, qRgb(255, 0, 0));
-     }
-}
-//        // qDebug()<<"x "<<x;
-//         //qDebug()<<"y "<<y;
-//         if(result[counter]==0)
-//         {
-//                image->setPixel(x, y, qRgb(255, 0, 0));
-//         }
-//         else if(result[counter]==1)
-//         {
-//                image->setPixel(x, y, qRgb(0, 0, 255));
-//         }
-//         else if(result[counter]==2)
-//         {
-//                image->setPixel(x, y, qRgb(0, 255, 0));
-//         }
-//         else if(result[counter]==3)
-//         {
-//            image->setPixel(x, y, qRgb(255, 255, 0));
-//         }
-//         //array[y][x]=0;
+          //image->setPixel(y, x, qRgb(255, 0, 0));
+         if(activities[counter]==0)
+         {
+            image->setPixel(x, y, qRgb(255, 0, 0));
+          }
+                  else if(activities[counter]==1)
+                  {
+                        image->setPixel(x, y, qRgb(0, 0, 255));
+                  }
+                  else if(activities[counter]==2)
+                 {
+                         image->setPixel(x, y, qRgb(0, 255, 0));
+                  }
+                  else if(activities[counter]==3)
+                  {
+                     image->setPixel(x, y, qRgb(255, 255, 0));
+                  }
 
-//     }
-//     counter++;
-//}
+
+               }
+              counter++;
+
+}
+
 
     QGraphicsScene * scene = new QGraphicsScene();
 
