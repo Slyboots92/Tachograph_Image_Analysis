@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Tachograph_Image_Analysis
 TEMPLATE = app
 
+INCLUDEPATH += /usr/local/include/opencv
+LIBS += -L/usr/local/lib -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_imgproc
+
 
 SOURCES += main.cpp\
     GUI/mainwindow.cpp \
