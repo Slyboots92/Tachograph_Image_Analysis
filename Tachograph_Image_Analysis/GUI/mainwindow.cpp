@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ImageColorReduction * algo1= new LightnessRGB2GrayScale();
 
    QImage * image = new  QImage();
-   image->load("/home/slyboots/development/workspace/qt_workspace/Tachograph_Image_Analysis/Tachograph_Image_Analysis/Resource/techo1_moja_kadrowana_obrot.jpg" );
-
+   //image->load("/home/slyboots/development/workspace/qt_workspace/Tachograph_Image_Analysis/Tachograph_Image_Analysis/Resource/techo1_moja_kadrowana_obrot.jpg" );
+    image->load("/home/slyboots/development/workspace/qt_workspace/Tachograph_Image_Analysis/Tachograph_Image_Analysis/Resource/techo1_moja.jpg" );
    qDebug()<<"is null"<<image->isNull();
    TachoImage * tacho = new TachoImage(image );
    algo1->reduceColor(image,tacho);
@@ -85,6 +85,20 @@ for(int i=4*-180;i<180*4;i++)
 
 }
 
+
+for(int i=4*-180;i<180*4;i++)
+{
+
+         x=round(6*cos( M_PI*i/(180*4)));
+         y=round(6*sin( M_PI*i/(180*4)));
+         y=y+1370;
+         x=x+1606;
+          image->setPixel(y, x, qRgb(100, 100, 100));
+
+
+}
+//image->setPixel(x, y, qRgb(0, 255, 0));
+//x 1370  y 1606
 
     QGraphicsScene * scene = new QGraphicsScene();
 
