@@ -16,6 +16,36 @@ TachoImage::TachoImage(QImage *image)
     }
     this->setArray(array);
 }
+int TachoImage::getXCenterCordOnRawImage() const
+{
+    return xCenterCordOnRawImage;
+}
+
+void TachoImage::setXCenterCordOnRawImage(int value)
+{
+    xCenterCordOnRawImage = value;
+}
+int TachoImage::getYCenterCordOnRawImage() const
+{
+    return yCenterCordOnRawImage;
+}
+
+void TachoImage::setYCenterCordOnRawImage(int value)
+{
+    yCenterCordOnRawImage = value;
+}
+int TachoImage::getMainCircleRadius() const
+{
+    return mainCircleRadius;
+}
+
+void TachoImage::setMainCircleRadius(int value)
+{
+    mainCircleRadius = value;
+}
+
+
+
 
 
 

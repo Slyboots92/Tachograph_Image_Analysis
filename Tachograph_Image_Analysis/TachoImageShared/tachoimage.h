@@ -75,15 +75,27 @@ public:
             this->xCenterCord=value;
      }
 
+     int getXCenterCordOnRawImage() const;
+     void setXCenterCordOnRawImage(int value);
+
+     int getYCenterCordOnRawImage() const;
+     void setYCenterCordOnRawImage(int value);
+
+     int getMainCircleRadius() const;
+     void setMainCircleRadius(int value);
+
 private:
      int width;
      int height;
      int gray_scale;
      int **array;
      int xCenterCord;
-    int yCenterCord;
+     int yCenterCord;
     int activityInternalRadius;
     int activityExternalRadius;
+    int xCenterCordOnRawImage;
+    int yCenterCordOnRawImage;
+    int mainCircleRadius;
 };
 
 #endif // TACHOIMAGE_H
