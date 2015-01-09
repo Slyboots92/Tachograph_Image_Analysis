@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     TachoImageAnalysis/TachoActivities/polarbasictachoactivityfactory.cpp \
     TachoImageProccesing/tachoproccesingsimplehoughimplementation.cpp \
     TachoImageProccesing/CirclesDetection/circledetection.cpp \
-    TachoImageProccesing/ComputeHelper/simplehoughcomputehelper.cpp
+    TachoImageProccesing/ComputeHelper/simplehoughcomputehelper.cpp \
+    TachoImageProccesing/CropImage/cropimage.cpp
 
 
 
@@ -56,7 +57,8 @@ HEADERS  += \
     TachoImageAnalysis/TachoActivities/polarbasictachoactivityfactory.h \
     TachoImageProccesing/tachoproccesingsimplehoughimplementation.h \
     TachoImageProccesing/CirclesDetection/circledetection.h \
-    TachoImageProccesing/ComputeHelper/simplehoughcomputehelper.h
+    TachoImageProccesing/ComputeHelper/simplehoughcomputehelper.h \
+    TachoImageProccesing/CropImage/cropimage.h
 
 
 

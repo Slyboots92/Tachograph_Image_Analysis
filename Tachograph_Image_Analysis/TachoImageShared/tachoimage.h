@@ -84,6 +84,21 @@ public:
      int getMainCircleRadius() const;
      void setMainCircleRadius(int value);
 
+     int getSmallMainCircleRadius() const;
+     void setSmallMainCircleRadius(int value);
+
+     int getSecondSmallCircleXCord() const;
+     void setSecondSmallCircleXCord(int value);
+
+     int getSecondSmallCircleYCord() const;
+     void setSecondSmallCircleYCord(int value);
+
+     int getSecondSmallCircleRadius() const;
+     void setSecondSmallCircleRadius(int value);
+
+     double getRotation() const;
+     void setRotation(double value);
+
 private:
      int width;
      int height;
@@ -96,6 +111,11 @@ private:
     int xCenterCordOnRawImage;
     int yCenterCordOnRawImage;
     int mainCircleRadius;
+    int smallMainCircleRadius;
+    int secondSmallCircleXCord;
+    int secondSmallCircleYCord;
+    int secondSmallCircleRadius;
+    double rotation;
 };
 
 #endif // TACHOIMAGE_H

@@ -61,10 +61,11 @@ cv::Mat CircleDetection::cropImage(cv::Mat src,TachoImage * image)
 
    // Setup a rectangle to define your region of interest
    cv::Rect myROI(x-r,y-r,2*r,2*r);
-
+   image->setWidth(2*r);
+   image->setHeight(2*r);
    // Crop the full image to that image contained by the rectangle myROI
    // Note that this doesn't copy the data
-   cv::Mat croppedImage = src(myROI);;
+   cv::Mat croppedImage = src(myROI);
     //To display to Debug
    cv::namedWindow( "Hough Circle Transform ", CV_WINDOW_KEEPRATIO);
    cv::imshow( "Hough Circle Transform ", croppedImage );
@@ -75,24 +76,25 @@ cv::Mat CircleDetection::cropImage(cv::Mat src,TachoImage * image)
 
 std::vector<cv::Vec3f> CircleDetection::findImportantCircleToComputeAngle(std::string pathName ,TachoImage * image)
 {
-    cv::Mat src,croppedImage;
+    cv::Mat src,croppedImage,croppedAndReduced;
     src = cv::imread(pathName, 1 );
     croppedImage=cropImage(src,image);
-
+    cv::cvtColor( croppedImage, croppedAndReduced, cv::COLOR_BGR2GRAY);
     std::vector<cv::Vec3f> circles;
-    HoughCircles( croppedImage, circles, CV_HOUGH_GRADIENT, 4, croppedImage.rows/15, 300, 200, croppedImage.rows/30, croppedImage.rows/16 );
+    HoughCircles( croppedAndReduced, circles, CV_HOUGH_GRADIENT, 4, croppedAndReduced.rows/15,
+                  300, 200, croppedAndReduced.rows/30, croppedAndReduced.rows/16 );
 
-    //Display to Debug
-      for( size_t i = 0; i < circles.size(); i++ )
+   // Display to Debug
+     for( size_t i = 0; i < circles.size(); i++ )
      {
          cv::Point center(cvRound(circles[i][0]), cvRound(circles[i][1]));
           int radius = cvRound(circles[i][2]);
-          cv::circle( croppedImage, center, 3, cv::Scalar(0,255,0), -1, 8, 0 );
-           cv::circle( croppedImage, center, radius, cv::Scalar(0,0,255), 3, 8, 0 );
+          //cv::circle( croppedImage, center, 3, cv::Scalar(0,255,0), -1, 8, 0 );
+          cv::circle( croppedImage, center, radius, cv::Scalar(0,0,255), 3, 8, 0 );
       }
-      cv::namedWindow( "Hough Circle Transform ", CV_WINDOW_KEEPRATIO);
-      cv::imshow( "Hough Circle Transform ", croppedImage );
-      cv::waitKey(0);
+     cv::namedWindow( "Hough Circle Transform ", CV_WINDOW_KEEPRATIO);
+     cv::imshow( "Hough Circle Transform ", croppedImage );
+     cv::waitKey(0);
      qDebug()<<"done";
     return circles;
 }

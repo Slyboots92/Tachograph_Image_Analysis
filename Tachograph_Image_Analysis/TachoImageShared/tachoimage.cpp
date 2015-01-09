@@ -43,6 +43,56 @@ void TachoImage::setMainCircleRadius(int value)
 {
     mainCircleRadius = value;
 }
+int TachoImage::getSmallMainCircleRadius() const
+{
+    return smallMainCircleRadius;
+}
+
+void TachoImage::setSmallMainCircleRadius(int value)
+{
+    smallMainCircleRadius = value;
+}
+int TachoImage::getSecondSmallCircleXCord() const
+{
+    return secondSmallCircleXCord;
+}
+
+void TachoImage::setSecondSmallCircleXCord(int value)
+{
+    secondSmallCircleXCord = value;
+}
+int TachoImage::getSecondSmallCircleYCord() const
+{
+    return secondSmallCircleYCord;
+}
+
+void TachoImage::setSecondSmallCircleYCord(int value)
+{
+    secondSmallCircleYCord = value;
+}
+int TachoImage::getSecondSmallCircleRadius() const
+{
+    return secondSmallCircleRadius;
+}
+
+void TachoImage::setSecondSmallCircleRadius(int value)
+{
+    secondSmallCircleRadius = value;
+}
+double TachoImage::getRotation() const
+{
+    return rotation;
+}
+
+void TachoImage::setRotation(double value)
+{
+    rotation = value;
+}
+
+
+
+
+
 
 
 

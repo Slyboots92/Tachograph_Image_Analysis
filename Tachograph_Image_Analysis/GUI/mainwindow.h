@@ -10,6 +10,8 @@
 #include "TachoImageProccesing/ColorReduction/imagecolorreduction.h"
 #include "TachoImageProccesing/ColorReduction/averagergb2grayscale.h"
 #include "TachoImageProccesing/ColorReduction/lightnessrgb2grayscale.h"
+#include "TachoImageProccesing/tachoproccesingsimplehoughimplementation.h"
+#include "TachoImageProccesing/tachoproccesingmain.h"
 #include <math.h>
 #include<QDebug>
 namespace Ui {

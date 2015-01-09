@@ -2,6 +2,9 @@
 #include <QApplication>
 #include "GUI/mainwindow.h"
 //#include "TachoImageProccesing/TachoProccesingLogic/ImageColorReducitionAlgorithms/averagergb2grayscale.h"
+#include"TachoImageProccesing/tachoproccesingmain.h"
+#include"TachoImageProccesing/tachoproccesingsimplehoughimplementation.h"
+#include "TachoImageProccesing/CirclesDetection/circledetection.h"
 #include <QDebug>
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -113,14 +116,21 @@ void test()
 
 
 }
+void test2()
+{
+    TachoProccesingMain *processig = new TachoProccesingSimpleHoughImplementation();
+    processig->produceTachoImage2Analysis("/home/slyboots/development/workspace/qt_workspace/Tachograph_Image_Analysis/Tachograph_Image_Analysis/Resource/techo1_moja.jpg");
+
+}
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-  // MainWindow w;
-   // w.show();
+  MainWindow w;
+    w.show();
+//test2();
 
-
-    test();
+    //test();
     return a.exec();
 }
 
