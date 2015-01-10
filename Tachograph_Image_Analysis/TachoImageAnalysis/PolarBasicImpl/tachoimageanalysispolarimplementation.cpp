@@ -8,7 +8,8 @@ std::vector<TachoActivitiy*> TachoImageAnalysisPolarImplementation::getAllActivi
     int buffLength=tacho->getActivityExternalRadius()-tacho->getActivityInternalRadius();
     int **rectangleWithActivities=transformRing2Rectangle(tacho,4);
     int * activities=scanRectangle(rectangleWithActivities,4,buffLength);
-    std::vector<TachoActivitiy*> result=createAndComputeActivityDetails(activities,4);
+    std::vector<TachoActivitiy*> tmp=createAndComputeActivityDetails(activities,4);
+    std::vector<TachoActivitiy*> result=filterActivities(tmp);
     return result;
 }
 std::vector<TachoActivitiy*>
@@ -47,7 +48,8 @@ return result;
 
 int ** TachoImageAnalysisPolarImplementation::transformRing2Rectangle(TachoImage * tacho,int resolution)
 {
-
+    qDebug()<<"getActivityExternalRadius() "<<tacho->getActivityExternalRadius();
+    qDebug()<<"getActiviternaltyInRadius() "<<tacho->getActivityInternalRadius();
     int **array=tacho->getArray();
     int x;
     int y;
@@ -77,44 +79,67 @@ int * TachoImageAnalysisPolarImplementation::scanRectangle(int **rectangleWithAc
     int *result= new int[360*resolution];
     for(int i=0;i<360*resolution;i++)
     {
-        int counter=countBlackPixelInBuff(rectangleWithActivities[i],length);
-        result[i]=decideWhichActivity(counter,length);
+        double percent=countPercenteBlackPixelInBuff(rectangleWithActivities[i],length);
+        result[i]=decideWhichActivity(percent);
     }
     return result;
 }
-
-int TachoImageAnalysisPolarImplementation::countBlackPixelInBuff(int buff[],int length)
+int * filterActivities(int * activities,int resolution,int length)
 {
-    int counter=0;
+
+
+}
+
+double TachoImageAnalysisPolarImplementation::countPercenteBlackPixelInBuff(int buff[],int length)
+{
+    double counterBlack=0;
+    double counterAll=0;
+    bool countingAlready=false;
     for(int i=0;i<length;i++)
     {
         if(buff[i]<TachoImageAnalysisPolarImplementation::BLACK_POINT_TRESHOLD)
         {
-            counter++;
+            countingAlready=true;
+            if(countingAlready)
+            {
+                counterBlack++;
+            }
+
+        }
+        if(countingAlready)
+        {
+            counterAll++;
         }
 
     }
    // qDebug()<<" percent"<<(double)counter/length<< " ";
-return counter;
-
-}
-int TachoImageAnalysisPolarImplementation::decideWhichActivity(int counter,int buffSize)
-{
-    if(counter<TachoImageAnalysisPolarImplementation::STAND_BY_TRESHOLD*buffSize)
+    if(countingAlready)
+    {
+        return counterBlack/counterAll;
+    }
+    else
     {
         return 0;
     }
-    else if(counter>=TachoImageAnalysisPolarImplementation::STAND_BY_TRESHOLD*buffSize &&
-            counter< TachoImageAnalysisPolarImplementation::ANOTHER_WORK_TRESHOLD*buffSize)
+
+}
+int TachoImageAnalysisPolarImplementation::decideWhichActivity(double percent)
+{
+    if(percent<TachoImageAnalysisPolarImplementation::STAND_BY_TRESHOLD)
+    {
+        return 0;
+    }
+    else if(percent>=TachoImageAnalysisPolarImplementation::STAND_BY_TRESHOLD &&
+            percent< TachoImageAnalysisPolarImplementation::ANOTHER_WORK_TRESHOLD)
     {
         return 1;
     }
-    else if(counter>=TachoImageAnalysisPolarImplementation::ANOTHER_WORK_TRESHOLD*buffSize &&
-            counter< TachoImageAnalysisPolarImplementation::DRIVE_TRESHOLD*buffSize)
+    else if(percent>=TachoImageAnalysisPolarImplementation::ANOTHER_WORK_TRESHOLD &&
+            percent< TachoImageAnalysisPolarImplementation::DRIVE_TRESHOLD)
     {
         return 2;
     }
-    else if( counter>= TachoImageAnalysisPolarImplementation::DRIVE_TRESHOLD*buffSize)
+    else if( percent>= TachoImageAnalysisPolarImplementation::DRIVE_TRESHOLD)
     {
         return 3;
     }
@@ -126,4 +151,43 @@ int TachoImageAnalysisPolarImplementation::decideWhichActivity(int counter,int b
 
 }
 
+std::vector<TachoActivitiy*> TachoImageAnalysisPolarImplementation::filterActivities(std::vector<TachoActivitiy*> activities)
+{
+    std::vector<TachoActivitiy*> result;
+    TachoActivityFactory  * factory= new PolarBasicTachoActivityFactory();
+    int duringTime=0;
+    TachoActivitiy * currActivity=NULL;
+    qDebug()<<" filtr start";
+    bool inserted=false;
+    for(std::vector<TachoActivitiy*>::iterator it = activities.begin(); it != activities.end(); ++it) {
 
+         qDebug()<<" filtr iteracja";
+        if(currActivity!=NULL&&(( (*it)->getDuringTimeInMin()<=3)||((*it)->getType()==currActivity->getType())))
+        {
+            qDebug()<<" if ";
+            currActivity->setDuringTimeInMin(currActivity->getDuringTimeInMin()+(*it)->getDuringTimeInMin());
+            currActivity->setEndTimeInMin(currActivity->getEndTimeInMin()+(*it)->getDuringTimeInMin());
+            inserted=false;
+        }
+        else
+        {
+              qDebug()<<" else ";
+            if(currActivity!=NULL)
+            {
+                result.push_back(currActivity);
+                inserted=true;
+            }
+            currActivity=factory->produceTachoActivtiy((*it)->getType());
+            currActivity->setStartTimeInMin((*it)->getStartTimeInMin());
+            currActivity->setDuringTimeInMin((*it)->getDuringTimeInMin());
+            currActivity->setEndTimeInMin((*it)->getEndTimeInMin());
+        }
+        duringTime+=(*it)->getDuringTimeInMin();
+        qDebug()<<duringTime;
+   }
+    if(inserted==false)
+    {
+        result.push_back(currActivity);
+    }
+    return result;
+}

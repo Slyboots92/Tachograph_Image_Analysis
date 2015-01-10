@@ -13,6 +13,7 @@
 #include "TachoImageProccesing/tachoproccesingsimplehoughimplementation.h"
 #include "TachoImageProccesing/tachoproccesingmain.h"
 #include <math.h>
+#include <cmath>
 #include<QDebug>
 namespace Ui {
 class MainWindow;

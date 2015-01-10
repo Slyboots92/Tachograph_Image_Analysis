@@ -16,13 +16,14 @@ public:
 
 
 private:
+int checkWhichPart(int x1,int y1,int x2,int y2);
 static int computeExternalRadiusWithActivities(TachoImage * image);
 static int computeInternalRadiusWithActivities(TachoImage * image);
 bool checkCondition4ThisCircle(TachoImage * image,cv::Vec3f circle);
 cv::Vec3f findFirstImportantCircle(TachoImage * image,std::vector<cv::Vec3f> circles);
 std::vector<cv::Vec3f> findSecondImportantCircle(TachoImage * image,std::vector<cv::Vec3f> circles);
-int static const internalRadius=0.654;
-int static const externalRadius=0.666;
+double static const internalRadius=0.5;
+double static const externalRadius=0.55;
 };
 
 #endif // SIMPLEHOUGHCOMPUTEHELPER_H

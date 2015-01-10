@@ -22,17 +22,17 @@ public:
     int *scanRectangle(int **rectangleWithActivities,int resolution,int length);
     int ** transformRing2Rectangle(TachoImage * tacho,int resolution);
     int *validateActivity();
-    int decideWhichActivity(int counter,int buffSize);
-    int countBlackPixelInBuff(int * buff,int length);
-
+    int decideWhichActivity(double percent);
+    double countPercenteBlackPixelInBuff(int buff[],int length);
     void markActivities (int * activities,int resolution,QImage * image);
     std::vector<TachoActivitiy*> createAndComputeActivityDetails(int *activities,int resolution);
+    std::vector<TachoActivitiy*> filterActivities(std::vector<TachoActivitiy*> activities);
 private:
 
-static const double STAND_BY_TRESHOLD=0.25;
-static const double ANOTHER_WORK_TRESHOLD=0.7;
-static const double DRIVE_TRESHOLD=0.85;
-static const int BLACK_POINT_TRESHOLD=100;
+static const double STAND_BY_TRESHOLD=0.3;
+static const double ANOTHER_WORK_TRESHOLD=0.6;
+static const double DRIVE_TRESHOLD=0.7;
+static const int BLACK_POINT_TRESHOLD=150;
 
 };
 

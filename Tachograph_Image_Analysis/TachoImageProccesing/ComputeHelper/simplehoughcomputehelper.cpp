@@ -30,6 +30,8 @@ void SimpleHoughComputeHelper::computeExternalAndInternalRadiusWithActivitiesAnd
 
     int internalRadius=computeInternalRadiusWithActivities(image);
     int externalRadius=computeExternalRadiusWithActivities(image);
+    qDebug()<<"internal "<<internalRadius;
+    qDebug()<<"external "<<externalRadius;
     image->setActivityInternalRadius(internalRadius);
     image->setActivityExternalRadius(externalRadius);
 
@@ -100,12 +102,8 @@ bool SimpleHoughComputeHelper::checkCondition4ThisCircle(TachoImage * image,cv::
     int y2=circle[1];
     int radius1=image->getSmallMainCircleRadius();
     int radius2=circle[2];
-    qDebug()<<image->getXCenterCord();
-    qDebug()<<image->getXCenterCordOnRawImage();
-    qDebug()<<image->getYCenterCord();
-    qDebug()<<image->getYCenterCordOnRawImage();
     double distance=sqrt((x1-x2)*(x1-x2)+ (y1-y2)*(y1-y2));
-    qDebug()<<"check "<<" "<<radius1+radius2<<" "<<distance<<" "<<radius1;
+  //  qDebug()<<"check "<<" "<<radius1+radius2<<" "<<distance<<" "<<radius1;
     if(radius1+radius2>distance&&distance>radius1)
     {
         return true;
@@ -127,6 +125,9 @@ qDebug()<<"x1 "<<x1;
 qDebug()<<"y1 "<<y1;
 qDebug()<<"x2 "<<x2;
 qDebug()<<"y2 "<<y2;
+
+
+
 double angle;
 if(abs(x2-x1)<5)
 {
@@ -157,10 +158,43 @@ else
      qDebug()<<"direction "<<direction;
     angle=atan(direction);
     angle=angle*180/M_PI;
+    int part=checkWhichPart(x1,y1,x2,y2);
+    qDebug()<<"part "<<part;
+    if(part==2||part==3)
+    {
+        angle+=180;
+    }
+    if(part==1)
+    {
+        angle+=270;
+    }
 }
 qDebug()<<"angle "<<angle;
 image->setRotation(angle);
 
 
 }
+int SimpleHoughComputeHelper::checkWhichPart(int x1,int y1,int x2,int y2)
+{
+    /*
+            |
+            |
+        II  |   I
+   x< --------------------
+        III |   IV
+            |
+            |
+           \/
+           y
+     */
+if(x2<x1 && y2>y1)
+    return 4;
+else if(x2>x1 && y2<y1)
+    return 1;
+else if(x2>x1&&y2 > y1)
+    return 3;
+else
+    return 2;
 
+
+}

@@ -16,6 +16,9 @@ void CircleDetection::findMainTachoCircleAndLoadData2TachoImage(std::string path
    image->setMainCircleRadius(vectorWithCircleDetails[2]);
    image->setXCenterCordOnRawImage(vectorWithCircleDetails[0]);
    image->setYCenterCordOnRawImage(vectorWithCircleDetails[1]);
+   qDebug()<<" x srodka glownego okregu "<<image->getXCenterCordOnRawImage();
+   qDebug()<<" y srodka glownego okregu "<<image->getYCenterCordOnRawImage();
+   qDebug()<<" promien glownego okregu "<<image->getMainCircleRadius();
 }
 
 cv::Vec3f CircleDetection::findMainTachoCircle(std::string pathName)

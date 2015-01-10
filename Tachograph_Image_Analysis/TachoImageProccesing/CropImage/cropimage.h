@@ -7,7 +7,7 @@ class CropImage
 public:
     CropImage();
     ~CropImage();
-    void cropImage(TachoImage * image,int x, int y);
+    void cropImage(TachoImage * image,int x, int y,int width,int height);
 };
 
 #endif // CROPIMAGE_H
